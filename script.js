@@ -16,12 +16,26 @@ function writePassword() {
 }
 // generate random password function
 function generatePassword(){
-  if (passwordCase===true) {
 
-
-    
+  if (passwordCase===true && passwordNumbers===true && passwordSpecial===true) {
+    let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
   }
-  let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+  else if (passwordCase===true && passwordNumbers===true && passwordSpecial===false) {
+    let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+  }
+  else if (passwordCase===true && passwordNumbers===false && passwordSpecial===true) {
+    let values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
+  }
+  else if (passwordCase===false && passwordNumbers===true && passwordSpecial===false) {
+    let values = "abcdefghijklmnopqrstuvwxyz1234567890";
+  }
+  else if (passwordCase===false && passwordNumbers===false && passwordSpecial===true) {
+    let values = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
+  }
+  else if (passwordCase===false && passwordNumbers===false && passwordSpecial===false) {
+    let values = "abcdefghijklmnopqrstuvwxyz";
+  }
+
   let password = "";
 
   // loop to create random characters
