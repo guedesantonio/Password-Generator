@@ -6,7 +6,6 @@ function writePassword() {
 
   let password = generatePassword();
   let passwordText = document.querySelector('#password');
-// *******************CREATE QUESTION PASSWORD LENGHT*******************
   passwordText.value = password;
 }
 // generate random password function
@@ -15,11 +14,26 @@ function generatePassword(){
 
     let complexity = prompt("How long do you want your password?");
     
-    // ADD CHECKER FOR PASSWORD LENGHT CRITERIA******************************
+    // CHECK FOR PASSWORD LENGTH CRITERIA
+    while (
+      complexity !== null &&
+      (
+      isNaN(complexity) || 
+          !(+complexity >=8 && +complexity <=128)
+      )
+    )
+    {
+    alert ("Invalid password lenght. Please try again");
+    complexity = prompt("How long do you want your password?");
+    }
+
+
     let passwordCase = confirm("Does your password needs uppercase letters?");
     let passwordNumbers = confirm("Does your password needs numbers?");
     let passwordSpecial = confirm("Does your password needs special characters?");
     let values = "";
+
+    // criteria condition check
 
   if (passwordCase === true && passwordNumbers === true && passwordSpecial === true) {
      values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
