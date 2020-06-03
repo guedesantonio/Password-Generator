@@ -24,10 +24,9 @@ function generatePassword(){
     )
     {
     alert ("Invalid password lenght. Please try again");
-    complexity = prompt("How long do you want your password?");
+    complexity = prompt("How many characters do you need in your password?");
     }
-
-
+    let passwordLCase = confirm("Does your password needs lowercase letters?");
     let passwordCase = confirm("Does your password needs uppercase letters?");
     let passwordNumbers = confirm("Does your password needs numbers?");
     let passwordSpecial = confirm("Does your password needs special characters?");
@@ -35,30 +34,22 @@ function generatePassword(){
 
     // criteria condition check
 
-  if (passwordCase === true && passwordNumbers === true && passwordSpecial === true) {
-     values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
+  if (passwordLCase === true ){
+     values += "abcdefghijklmnopqrstuvwxyz";
   }
-  else if (passwordCase === true && passwordNumbers === true && passwordSpecial === false) {
-     values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+  if (passwordCase === true) {
+     values += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   }
-  else if (passwordCase === true && passwordNumbers === false && passwordSpecial === true) {
-     values = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
+  if (passwordNumbers === true) {
+     values += "0123456789";
   }
-  else if (passwordCase === true && passwordNumbers === false && passwordSpecial === false) {
-    values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if ( passwordSpecial === true) {
+    values += "!@#$%^&*()_+";
   }
-  else if (passwordCase === false && passwordNumbers === true && passwordSpecial === false) {
-     values = "abcdefghijklmnopqrstuvwxyz1234567890";
+  if (passwordCase === false && passwordNumbers === false && passwordSpecial === false && passwordLCase === false) {
+     alert("Your criteria is not valid, please try again.");
   }
-  else if (passwordCase === false && passwordNumbers === false && passwordSpecial === true) {
-     values = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+";
-  }
-  else if (passwordCase === false && passwordNumbers === false && passwordSpecial === false) {
-     values = "abcdefghijklmnopqrstuvwxyz";
-  }
-  else if (passwordCase === false && passwordNumbers === true && passwordSpecial === true) {
-    values = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+";
-  }
+  
   
 
   let password = "";
