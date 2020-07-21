@@ -15,7 +15,8 @@ No instalation required
 Follow the prompts do obtain your password.
 
 ## Authors:
-_Italic_ Antonio Guedes
+ _Antonio Guedes_ 
 
 ## Project status
 Completed.
+[Deployed Link](https://guedesantonio.github.io/Password-Generator/)
